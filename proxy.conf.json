@@ -1,0 +1,13 @@
+{
+
+"/api/*": {
+
+   "target": "http://52.78.159.229:8080",
+
+   "secure": false,
+
+   "logLevel": "info"
+
+    }
+
+}
