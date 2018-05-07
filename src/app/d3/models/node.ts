@@ -1,5 +1,6 @@
 import APP_CONFIG from '../../app.config';
 import { D3Service } from '../';
+import * as d3 from 'd3';
 
 export class Node implements d3.SimulationNodeDatum {
   // optional - defining optional implementation properties - required for relevant typing assistance
@@ -15,19 +16,21 @@ export class Node implements d3.SimulationNodeDatum {
 
   keyword: string;
   totalCount: number = 0;
+  totalLinkCnt: number = 0;
 
   linkCount: number = 0;
   linked: Node[] = [];
 
   clicked: boolean = false;
 
-  colorAlpha: number = 0;
+  colorAlpha: number;
 
-  constructor(id, keyword, totalCount) {
+  constructor(id, keyword, totalCount, color, totalLinkCnt) {
     this.id = id;
     this.keyword = keyword;
     this.totalCount = totalCount;
-    this.colorAlpha = totalCount;
+    this.colorAlpha = color;
+    this.totalLinkCnt = totalLinkCnt;
   }
 
   normal = () => {
@@ -39,11 +42,14 @@ export class Node implements d3.SimulationNodeDatum {
   }
 
   get fontSize() {
-    return (10 * this.normal() + 10) + 'px';
+    return (20 * this.normal() + 10) + 'px';
   }
 
   get color() {
-    let index = Math.floor(APP_CONFIG.SPECTRUM.length * Math.sqrt(this.colorAlpha / APP_CONFIG.NN));
-    return APP_CONFIG.SPECTRUM[index];
+    //let index = Math.floor(APP_CONFIG.SPECTRUM.length * Math.sqrt(this.colorAlpha / APP_CONFIG.NN));
+    // console.log(this.colorAlpha);
+    
+    // if(this.keyword=="김성태") console.log((this.colorAlpha));
+    return APP_CONFIG.SPECTRUM[Math.round(this.colorAlpha)];
   }
 }

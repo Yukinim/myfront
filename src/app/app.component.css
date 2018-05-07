@@ -18,21 +18,21 @@
     background:linear-gradient(to right, red , yellow);
     text-align:center;
 }
-@media all and (max-width: 382px) {
+@media all and (max-width: 207px) {
     #nav_menu{
         height:180px;
         background:linear-gradient(to right, red , yellow);
         text-align:center;
     }
 }
-@media all and (min-width: 383px) and (max-width: 767px) {
+@media all and (min-width: 208px) and (max-width: 695px) {
     #nav_menu{
         height:120px;
         background:linear-gradient(to right, red , yellow);
         text-align:center;
     }
 }
-@media all and (min-width: 768px) {
+@media all and (min-width: 696px) {
     #nav_menu{
         height:60px;
         background:linear-gradient(to right, red , yellow);
@@ -88,20 +88,58 @@ html,body{
     display:inline-block;
     vertical-align:middle;
   }
-  button{
-    background:#1AAB8A;
-    color:#fff;
-    border:none;
-    position:relative;
-    height:60px;
-    text-align:center;
-    width:13%;
-    font-size:1.6em;
-    padding:0 2em;
-    cursor:pointer;
-    transition:800ms ease all;
-    outline:none;
-  }
+
+@media all and (max-width: 207px) {
+    button{
+        background:#1AAB8A;
+        color:#fff;
+        border:none;
+        position:relative;
+        height:60px;
+        text-align:center;
+        width:13%;
+        font-size:0.4em;
+        padding:0 2em;
+        cursor:pointer;
+        transition:800ms ease all;
+        outline:none;
+      }
+}
+@media all and (min-width: 208px) and (max-width: 767px) {
+    button{
+        background:#1AAB8A;
+        color:#fff;
+        border:none;
+        position:relative;
+        height:60px;
+        text-align:center;
+        width:13%;
+        font-size:0.4em;
+        padding:0 2em;
+        cursor:pointer;
+        transition:800ms ease all;
+        outline:none;
+      }
+}
+@media all and (min-width: 768px) {
+    button{
+        background:#1AAB8A;
+        color:#fff;
+        border:none;
+        position:relative;
+        height:60px;
+        text-align:center;
+        width:13%;
+        font-size:1.6em;
+        padding:0 2em;
+        cursor:pointer;
+        transition:800ms ease all;
+        outline:none;
+      }
+}
+
+
+
   button:hover{
     background:#fff;
     color:#1AAB8A;

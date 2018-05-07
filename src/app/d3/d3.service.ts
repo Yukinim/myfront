@@ -8,6 +8,8 @@ export class D3Service {
   /** This service will provide methods to enable user interaction with elements
     * while maintaining the d3 simulations physics
     */
+
+
   constructor() { }
 
   /** A method to bind a pan and zoom behaviour to an svg element */
@@ -29,6 +31,7 @@ export class D3Service {
   applyClickBehaviour(element, node: Node, graph: ForceDirectedGraph) {
 
     const d3element = d3.select(element);
+    // alert(APP_CONFIG.MAXLINK);
 
     function myClick(){
       let colorAlphaToChange = 0;
@@ -36,15 +39,15 @@ export class D3Service {
         colorAlphaToChange = APP_CONFIG.NN;
       }
       node.clicked = !node.clicked;
-      
-      node.colorAlpha = (colorAlphaToChange == 0 ? node.totalCount : colorAlphaToChange);
+      var scale = d3.scaleLinear().domain([1,APP_CONFIG.MAXLINK])
+      .range([0,10]);
+     
+      node.colorAlpha = (colorAlphaToChange == 0 ? scale(node.totalLinkCnt) : colorAlphaToChange);
       for(let i = 0 ; i < node.linked.length; i ++){
-        node.linked[i].colorAlpha = (colorAlphaToChange == 0 ? node.linked[i].totalCount : colorAlphaToChange);
+        node.linked[i].colorAlpha = (colorAlphaToChange == 0 ? scale(node.linked[i].totalLinkCnt) : colorAlphaToChange);
         node.linked[i].clicked = !node.linked[i].clicked;
       }
     }
-    
-
     d3element.on('click', myClick);
   }
 
