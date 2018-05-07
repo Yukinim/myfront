@@ -1,7 +1,11 @@
 <div id="nav_menu">
     <ul style="list-style-type:none">
-    <li style="display:inline"><button (click)="myClick()">TOP 100</button></li>
-    <li style="display:inline"><button (click)="myClick2()">TOP 30</button></li>
+    <li style="display:inline"><button (click)="myClick(10)">TOP 10</button></li>
+    <li style="display:inline"><button (click)="myClick(30)">TOP 30</button></li>
+    <li style="display:inline"><button (click)="myClick(50)">TOP 50</button></li>
+    <li style="display:inline"><button (click)="myClick(100)">TOP 100</button></li>
+    <li style="display:inline"><button (click)="myClick(200)">TOP 200</button></li>
+    <li style="display:inline"><button (click)="myClick(300)">TOP 300</button></li>
     </ul>
 </div>
 <div *ngIf="keywordList.length > 10">

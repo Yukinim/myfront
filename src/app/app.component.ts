@@ -95,18 +95,18 @@ export class AppComponent  implements OnInit{
     //return this._options
      return this._options = {
        width: window.innerWidth,
-       height: window.innerHeight-130
+       height: window.innerHeight-117
      };
   }
 
-  myClick(){
+  myClick(nn){
    
     this.http.get('/api/v1/mykeywords')
     .subscribe(
       (ret: any) => {
         this.keywordList = ret.data;
         
-        this.n = 100;
+        this.n = nn;
 
         this.setGraphData(this.keywordList);
 
@@ -124,28 +124,4 @@ export class AppComponent  implements OnInit{
     )
   }
 
-  myClick2(){
-   
-    this.http.get('/api/v1/mykeywords')
-    .subscribe(
-      (ret: any) => {
-        this.keywordList = ret.data;
-
-        this.n = 30;
-
-        this.setGraphData(this.keywordList);
-
-        this.graph = this.d3Service.getForceDirectedGraph(this.nodes, this.links, this.options);
-
-        /** Binding change detection check on each tick
-         * This along with an onPush change detection strategy should enforce checking only when relevant!
-         * This improves scripting computation duration in a couple of tests I've made, consistently.
-         * Also, it makes sense to avoid unnecessary checks when we are dealing only with simulations data binding.
-         */
-        this.graph.ticker.subscribe((d) => {
-          this.ref.markForCheck();
-        });
-      }
-    )
-  }
 }
