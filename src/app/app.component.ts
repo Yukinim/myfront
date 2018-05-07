@@ -42,7 +42,7 @@ export class AppComponent  implements OnInit{
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    //this.graph.initSimulation(this.options);
+    if(this.graph != null && this.graph != undefined) this.graph.initSimulation(this.options);
   }
   keywordList: Keyword[] = [];
   
@@ -51,7 +51,6 @@ export class AppComponent  implements OnInit{
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    
   }
 
   setGraphData(keywords: Keyword[]){
@@ -67,7 +66,7 @@ export class AppComponent  implements OnInit{
     //APP_CONFIG.N = keywords.length;
 
     //const N = APP_CONFIG.N;
-    APP_CONFIG.NN = this.keywordList.length;
+   // APP_CONFIG.NN = this.keywordList.length;
 
     let max = 0;
     // var sumLink = new Array();
@@ -108,7 +107,7 @@ export class AppComponent  implements OnInit{
   }
 
   ngAfterViewInit() {
-    //this.graph.initSimulation(this.options);
+    if(this.graph != null && this.graph != undefined) this.graph.initSimulation(this.options);
   }
 
   get options() {

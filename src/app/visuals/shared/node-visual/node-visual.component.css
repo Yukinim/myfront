@@ -10,9 +10,7 @@
 
 .node-name {
   font-style:normal;
-  fill:white;
   fill-opacity:100;
-  stroke:rgb(255, 255, 255);
   stroke-width:1;
   stroke-linecap:butt;
   stroke-linejoin:miter;

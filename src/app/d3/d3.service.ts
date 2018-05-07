@@ -35,16 +35,24 @@ export class D3Service {
 
     function myClick(){
       let colorAlphaToChange = 0;
+      let newFillStr = 'rgb(255,255,255)';
+      let newStrokeStr = 'rgb(255,255,255)';
       if(!node.clicked){
         colorAlphaToChange = APP_CONFIG.NN;
+        newFillStr = 'rgb(0,0,0)';
+        newStrokeStr = 'rgb(0,0,0)';
       }
       node.clicked = !node.clicked;
       var scale = d3.scaleLinear().domain([1,APP_CONFIG.MAXLINK])
       .range([0,10]);
      
       node.colorAlpha = (colorAlphaToChange == 0 ? scale(node.totalLinkCnt) : colorAlphaToChange);
+      node.fontFillStr = newFillStr;
+      node.fontStrokeStr = newStrokeStr;
       for(let i = 0 ; i < node.linked.length; i ++){
         node.linked[i].colorAlpha = (colorAlphaToChange == 0 ? scale(node.linked[i].totalLinkCnt) : colorAlphaToChange);
+        node.linked[i].fontFillStr = newFillStr;
+        node.linked[i].fontStrokeStr = newStrokeStr;
         node.linked[i].clicked = !node.linked[i].clicked;
       }
     }

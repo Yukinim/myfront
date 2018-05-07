@@ -14,7 +14,9 @@ import { Node } from '../../../d3';
       </svg:circle>
       <svg:text
           class="node-name"
-          [attr.font-size]="node.fontSize">
+          [attr.font-size]="node.fontSize"
+          [attr.fill]="node.fontFill"
+          [attr.stroke]="node.fontStroke">
         {{node.keyword}}
       </svg:text>
     </svg:g>

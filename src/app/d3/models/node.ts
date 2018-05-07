@@ -25,6 +25,9 @@ export class Node implements d3.SimulationNodeDatum {
 
   colorAlpha: number;
 
+  fontFillStr: string = 'rgb(255,255,255)';
+  fontStrokeStr: string = 'rgb(255,255,255)';
+
   constructor(id, keyword, totalCount, color, totalLinkCnt) {
     this.id = id;
     this.keyword = keyword;
@@ -44,7 +47,12 @@ export class Node implements d3.SimulationNodeDatum {
   get fontSize() {
     return (20 * this.normal() + 10) + 'px';
   }
-
+  get fontFill() {
+    return this.fontFillStr;
+  }
+  get fontStroke() {
+    return this.fontStrokeStr;
+  }
   get color() {
     //let index = Math.floor(APP_CONFIG.SPECTRUM.length * Math.sqrt(this.colorAlpha / APP_CONFIG.NN));
     // console.log(this.colorAlpha);

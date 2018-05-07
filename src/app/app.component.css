@@ -18,14 +18,14 @@
     background:linear-gradient(to right, red , yellow);
     text-align:center;
 }
-@media all and (max-width: 207px) {
+@media all and (max-width: 323px) {
     #nav_menu{
         height:180px;
         background:linear-gradient(to right, red , yellow);
         text-align:center;
     }
 }
-@media all and (min-width: 208px) and (max-width: 695px) {
+@media all and (min-width: 324px) and (max-width: 695px) {
     #nav_menu{
         height:120px;
         background:linear-gradient(to right, red , yellow);
