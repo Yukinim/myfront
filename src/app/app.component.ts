@@ -93,10 +93,22 @@ export class AppComponent  implements OnInit{
 
   get options() {
     //return this._options
-     return this._options = {
-       width: window.innerWidth,
-       height: window.innerHeight-117
-     };
+    if(window.innerHeight <= 382){
+      return this._options = {
+        width: window.innerWidth,
+        height: window.innerHeight-117 - 120
+      };
+    }else if(window.innerHeight <= 767){
+      return this._options = {
+        width: window.innerWidth,
+        height: window.innerHeight-117 - 60
+      };
+    }else{
+      return this._options = {
+        width: window.innerWidth,
+        height: window.innerHeight-117
+      };
+    }
   }
 
   myClick(nn){
