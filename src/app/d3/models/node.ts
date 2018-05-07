@@ -1,4 +1,5 @@
 import APP_CONFIG from '../../app.config';
+import { D3Service } from '../';
 
 export class Node implements d3.SimulationNodeDatum {
   // optional - defining optional implementation properties - required for relevant typing assistance
@@ -16,11 +17,17 @@ export class Node implements d3.SimulationNodeDatum {
   totalCount: number = 0;
 
   linkCount: number = 0;
+  linked: Node[] = [];
+
+  clicked: boolean = false;
+
+  colorAlpha: number = 0;
 
   constructor(id, keyword, totalCount) {
     this.id = id;
     this.keyword = keyword;
     this.totalCount = totalCount;
+    this.colorAlpha = totalCount;
   }
 
   normal = () => {
@@ -28,15 +35,15 @@ export class Node implements d3.SimulationNodeDatum {
   }
 
   get r() {
-    return 150 * this.normal() + 10;
+    return 70 * this.normal() + 10;
   }
 
   get fontSize() {
-    return (30 * this.normal() + 10) + 'px';
+    return (10 * this.normal() + 10) + 'px';
   }
 
   get color() {
-    let index = Math.floor(APP_CONFIG.SPECTRUM.length * this.normal());
+    let index = Math.floor(APP_CONFIG.SPECTRUM.length * Math.sqrt(this.colorAlpha / APP_CONFIG.NN));
     return APP_CONFIG.SPECTRUM[index];
   }
 }

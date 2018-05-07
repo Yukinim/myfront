@@ -1,5 +1,6 @@
 const CONFIG = {
-  N : 20,
+  N : 50,
+  NN : 50,
   SPECTRUM: [
     // "rgb(222,237,250)"
     "rgb(176,212,243)",

@@ -13,5 +13,7 @@
   text-anchor: middle;
   alignment-baseline: central;
   font-weight: 300;
-  fill: white;
+  fill: rgb(255, 255, 255);
+  /* text-decoration: bold; */
+  text: 2px white;
 }

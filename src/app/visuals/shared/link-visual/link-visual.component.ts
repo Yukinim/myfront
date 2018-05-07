@@ -6,6 +6,7 @@ import { Link } from '../../../d3';
   template: `
     <svg:line
         class="link"
+        style="stroke-width:link.linkCnt!important"
         [attr.x1]="link.source.x"
         [attr.y1]="link.source.y"
         [attr.x2]="link.target.x"
@@ -16,4 +17,8 @@ import { Link } from '../../../d3';
 })
 export class LinkVisualComponent  {
   @Input('linkVisual') link: Link;
+
+  constructor(){
+
+  }
 }

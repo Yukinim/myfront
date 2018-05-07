@@ -1,5 +1,6 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Node, Link, ForceDirectedGraph } from './models';
+import APP_CONFIG from '../app.config';
 import * as d3 from 'd3';
 
 @Injectable()
@@ -23,6 +24,28 @@ export class D3Service {
 
     zoom = d3.zoom().on('zoom', zoomed);
     svg.call(zoom);
+  }
+
+  applyClickBehaviour(element, node: Node, graph: ForceDirectedGraph) {
+
+    const d3element = d3.select(element);
+
+    function myClick(){
+      let colorAlphaToChange = 0;
+      if(!node.clicked){
+        colorAlphaToChange = APP_CONFIG.NN;
+      }
+      node.clicked = !node.clicked;
+      
+      node.colorAlpha = (colorAlphaToChange == 0 ? node.totalCount : colorAlphaToChange);
+      for(let i = 0 ; i < node.linked.length; i ++){
+        node.linked[i].colorAlpha = (colorAlphaToChange == 0 ? node.linked[i].totalCount : colorAlphaToChange);
+        node.linked[i].clicked = !node.linked[i].clicked;
+      }
+    }
+    
+
+    d3element.on('click', myClick);
   }
 
   /** A method to bind a draggable behaviour to an svg element */

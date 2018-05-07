@@ -13,5 +13,6 @@ export class DraggableDirective implements OnInit {
 
     ngOnInit() {
         this.d3Service.applyDraggableBehaviour(this._element.nativeElement, this.draggableNode, this.draggableInGraph);
+        this.d3Service.applyClickBehaviour(this._element.nativeElement, this.draggableNode, this.draggableInGraph);
     }
 }
