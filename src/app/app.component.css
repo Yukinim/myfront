@@ -166,9 +166,8 @@ html,body{
         position:relative;
         height:60px;
         text-align:center;
-        width:10%;
+        width:40px;
         font-size:1.1em;
-        padding:0 2em;
         cursor:pointer;
         transition:800ms ease all;
         outline:none;
@@ -183,9 +182,8 @@ html,body{
         position:relative;
         height:60px;
         text-align:center;
-        width:13%;
+        width:80px;
         font-size:1.6em;
-        padding:0 2em;
         cursor:pointer;
         transition:800ms ease all;
         outline:none;
