@@ -2,14 +2,14 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { Link } from './link';
 import { Node } from './node';
 import * as d3 from 'd3';
-import { ReloadResolveService } from 'ng-reload-resolve';
+
 
 const FORCES = {
   LINKS: 1 / 50,
   COLLISION: 1,
   CHARGE: -1
 }
-@Injectable()
+
 export class ForceDirectedGraph {
   public ticker: EventEmitter<d3.Simulation<Node, Link>> = new EventEmitter();
   public simulation: d3.Simulation<any, any>;
@@ -17,7 +17,7 @@ export class ForceDirectedGraph {
   public nodes: Node[] = [];
   public links: Link[] = [];
 
-  constructor(nodes, links, options: { width, height }, public reloader: ReloadResolveService) {
+  constructor(nodes, links, options: { width, height }) {
     this.nodes = nodes;
     this.links = links;
 
@@ -95,8 +95,4 @@ export class ForceDirectedGraph {
     this.simulation.restart();
   }
 
-  
-  reload() {
-    this.reloader.reloadResolve().then(console.log);
-  }
 }
