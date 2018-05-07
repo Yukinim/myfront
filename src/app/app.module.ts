@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { GraphComponent } from './visuals/graph/graph.component';
 import { SHARED_VISUALS } from './visuals/shared';
 
+import { ReloadResolveModule } from 'ng-reload-resolve';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { SHARED_VISUALS } from './visuals/shared';
     BrowserModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    ReloadResolveModule
   ],
   providers: [D3Service],
   bootstrap: [AppComponent]

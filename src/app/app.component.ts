@@ -35,14 +35,6 @@ export class AppComponent  implements OnInit{
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
 
-    this.http.get('/api/v1/mykeywords')
-    .subscribe(
-      (ret: any) => {
-        this.keywordList = ret.data;
-        this.setGraphData(this.keywordList);
-
-      }
-    )
   }
 
   setGraphData(keywords: Keyword[]){
@@ -78,7 +70,13 @@ export class AppComponent  implements OnInit{
     }
   }
 
-  myEvent(){
-
+  myClick(){
+    this.http.get('/api/v1/mykeywords')
+    .subscribe(
+      (ret: any) => {
+        this.keywordList = ret.data;
+        this.setGraphData(this.keywordList);
+      }
+    )
   }
 }
