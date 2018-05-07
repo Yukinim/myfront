@@ -1,11 +1,17 @@
 <div id="nav_menu">
     <ul style="list-style-type:none">
-    <li style="display:inline"><button (click)="myClick()">메뉴 1</button></li>
-    <li style="display:inline"><button (click)="myClick()">메뉴 2</button></li>
+    <li style="display:inline"><button (click)="myClick()">TOP 100</button></li>
+    <li style="display:inline"><button (click)="myClick2()">TOP 30</button></li>
     </ul>
 </div>
 <div *ngIf="keywordList.length > 10">
-    <graph [nodes]="nodes" [links]="links"></graph>
+    <svg style="background:linear-gradient(to bottom, rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%);" #svg [attr.width]="_options.width" [attr.height]="_options.height">
+      <g [zoomableOf]="svg">
+        <g [linkVisual]="link" *ngFor="let link of links"></g>
+        <g [nodeVisual]="node" *ngFor="let node of nodes"
+            [draggableNode]="node" [draggableInGraph]="graph"></g>
+      </g>
+    </svg>
 </div>
 <div class="my-footer">
     <span>Min Young Cho - yukinim86@gmail.com</span>    

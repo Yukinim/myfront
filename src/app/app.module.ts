@@ -8,15 +8,12 @@ import { D3Service, D3_DIRECTIVES } from './d3';
 
 import { AppComponent } from './app.component';
 
-import { GraphComponent } from './visuals/graph/graph.component';
 import { SHARED_VISUALS } from './visuals/shared';
 
-import { ReloadResolveModule } from 'ng-reload-resolve';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GraphComponent,
     ...SHARED_VISUALS,
     ...D3_DIRECTIVES
   ],
@@ -24,8 +21,7 @@ import { ReloadResolveModule } from 'ng-reload-resolve';
     BrowserModule,
     FormsModule,
     HttpModule,
-    HttpClientModule,
-    ReloadResolveModule
+    HttpClientModule
   ],
   providers: [D3Service],
   bootstrap: [AppComponent]
